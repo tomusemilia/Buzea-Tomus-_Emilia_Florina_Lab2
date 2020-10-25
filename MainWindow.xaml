@@ -7,12 +7,17 @@
         mc:Ignorable="d"
         Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
     <Grid Width="800">
-        <Label x:Name="lblTitle" Content=" Doughnuts - Bake &amp; Sale" Margin="124,22,124,344" FontSize="24" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-        <GroupBox x:Name="gbRaised" Header="Raised" FontWeight="Bold" Margin="124,113,473,179">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="29*"/>
+            <ColumnDefinition Width="179*"/>
+            <ColumnDefinition Width="592*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblTitle" Content=" Doughnuts - Bake &amp; Sale" Margin="95,22,124,344" FontSize="24" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <GroupBox x:Name="gbRaised" Header="Raised" FontWeight="Bold" Margin="95,113,473,179" Grid.ColumnSpan="2" Grid.Column="1">
             <Canvas HorizontalAlignment="Right" Width="788"/>
         </GroupBox>
-        <GroupBox x:Name="gbFilled" Header="Filled" Margin="434,76,107,167" FontWeight="Bold"/>
-        <Canvas>
+        <GroupBox x:Name="gbFilled" Header="Filled" Margin="226,76,107,167" FontWeight="Bold" Grid.Column="2"/>
+        <Canvas Grid.ColumnSpan="3">
             <Label x:Name="lblGlazedRaised" Content="Glazed" Canvas.Left="143" Canvas.Top="142" Height="26" Width="60"/>
             <TextBox x:Name="txtGlazedRaised" Text="0" TextWrapping="Wrap" Width="48" IsReadOnly="True" Canvas.Left="227" Canvas.Top="144" Height="24"/>
             <Label x:Name="lblSugarRaised" Content="Sugar" Canvas.Left="146" Canvas.Top="193"/>
@@ -25,7 +30,7 @@
             <TextBox x:Name="txtVanillaFilled" Text="0" TextWrapping="Wrap" Width="57" IsReadOnly="True" Canvas.Left="557" Canvas.Top="201" Height="25"/>
             <GroupBox x:Name="gbSale" Header="Current Sale" Height="153" Width="671" FontWeight="Bold" Canvas.Left="68" Canvas.Top="271"/>
         </Canvas>
-        <Canvas>
+        <Canvas Grid.ColumnSpan="3">
             <Label x:Name="lblQuantity" Content="Quantity" Canvas.Left="95" Canvas.Top="299"/>
             <TextBox x:Name="txtQuantity" Text="0" TextWrapping="Wrap" Width="57" Canvas.Left="156" Canvas.Top="301" Height="24"/>
             <Label x:Name="lblType" Content="Type" Canvas.Left="254" Canvas.Top="299"/>
@@ -39,10 +44,10 @@
             <Label x:Name="lblTotal" Content="Total" FontWeight="Bold" Canvas.Left="403" Canvas.Top="389"/>
             <Button x:Name="btnCheckOut" Content="Check Out" FontWeight="Bold" Canvas.Left="608" Canvas.Top="392" Width="93"/>
         </Canvas>
-        <TextBox x:Name="txtTotal" Text="0" TextWrapping="Wrap" Width="120" IsReadOnly="True" Margin="449,390,231,21"/>
-        <Button x:Name="btnAddToSale" Content="Add To Sale" Margin="609,332,101,83"/>
-        <Button x:Name="btnRemoveItem" Content="Remove Item" Margin="609,356,101,59"/>
-        <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="131" Margin="0,26,0,0">
+        <TextBox x:Name="txtTotal" Text="0" TextWrapping="Wrap" Width="120" IsReadOnly="True" Margin="241,390,231,21" Grid.Column="2"/>
+        <Button x:Name="btnAddToSale" Content="Add To Sale" Margin="401,332,101,83" Grid.Column="2"/>
+        <Button x:Name="btnRemoveItem" Content="Remove Item" Margin="401,356,101,59" Grid.Column="2"/>
+        <Menu x:Name="mnuMain" HorizontalAlignment="Right" Height="21" VerticalAlignment="Top" Width="131" Margin="0,1,77,0" Grid.ColumnSpan="2">
             <MenuItem Header="File">
                 <MenuItem Header="Exit"/>
             </MenuItem>
@@ -56,7 +61,8 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
+
     </Grid>
-    
-    
+
+
 </Window>
